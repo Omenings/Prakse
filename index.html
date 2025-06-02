@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mājaslapas cenu kalkulators</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Mājaslapas izstrādes cenu kalkulators</h1>
+  </header>
+
+  <main class="container">
+    <section class="form-section">
+      <label for="sections">Sadaļu skaits:</label>
+      <input type="number" id="sections" min="1" value="1" />
+    </section>
+
+    <section class="form-section">
+      <p>Izvēlies nepieciešamo funkcionalitāti:</p>
+      <label><input type="checkbox" class="feature" value="seo" data-price="50" /> SEO optimizācija (50 EUR)</label><br />
+      <label><input type="checkbox" class="feature" value="contact" data-price="30" /> Kontaktu forma (30 EUR)</label><br />
+      <label><input type="checkbox" class="feature" value="gallery" data-price="40" /> Attēlu galerija (40 EUR)</label><br />
+      <label><input type="checkbox" class="feature" value="cms" data-price="100" /> CMS integrācija (100 EUR)</label><br />
+    </section>
+
+    <section class="form-section">
+      <button onclick="calculatePrice()">Aprēķināt cenu</button>
+      <div id="result"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Mājaslapu izstrādes uzņēmums</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

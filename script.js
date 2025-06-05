@@ -1,42 +1,88 @@
+/* Pamata stils visam ķermenim */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #fff4f4; /* maigi rozā fons */
+  color: #333;
+}
 
-function calculatePrice() {
-  const sectionInput = document.getElementById("sections");
-  const sectionCount = parseInt(sectionInput.value);
-  const sectionPrice = 20;
-  const pvnRate = 0.21;
+/* Augšējā un apakšējā josla */
+header, footer {
+  background-color: #d94c4c; /* tumši sarkana krāsa */
+  color: white;
+  text-align: center;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
 
-  let output = "<h3>Detalizēts rēķins:</h3><ul>";
-  let subtotal = 0;
+/* Galvenais saturs ar centru */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
 
-  // Brīdinājums, ja vairāk nekā 35 sadaļas
-  if (sectionCount > 35) {
-    output += `<p style="color:red;"><strong>⚠️ Uzmanību:</strong> Mājaslapa ar vairāk nekā 35 sadaļām var prasīt būtisku izstrādes laiku!</p>`;
-  }
+/* Katra sadaļa kā "kartiņa" */
+.form-section {
+  background: white;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 600px;
+}
 
-  // Aprēķins par sadaļām
-  const sectionTotal = sectionCount * sectionPrice;
-  const sectionPVN = sectionTotal * pvnRate;
-  output += `<li>${sectionCount} sadaļa(s) x 20 EUR = ${sectionTotal.toFixed(2)} EUR + PVN (${sectionPVN.toFixed(2)} EUR)</li>`;
-  subtotal += sectionTotal;
+/* Ievades lauki un teksta stils */
+input[type="number"] {
+  padding: 0.5rem;
+  font-size: 1rem;
+  width: 80px;
+  margin-left: 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+}
 
-  // Funkcionalitāšu aprēķins
-  const features = document.querySelectorAll(".feature:checked");
-  features.forEach(feature => {
-    const name = feature.dataset.name;
-    const price = parseFloat(feature.dataset.price);
-    const pvn = price * pvnRate;
-    output += `<li>${name} = ${price.toFixed(2)} EUR + PVN (${pvn.toFixed(2)} EUR)</li>`;
-    subtotal += price;
-  });
+/* Poga dizains */
+button {
+  background-color: #d94c4c;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 1rem;
+}
 
-  // Kopējā summa
-  const totalPVN = subtotal * pvnRate;
-  const totalWithPVN = subtotal + totalPVN;
+button:hover {
+  background-color: #b93c3c; /* tumšāka versija, kad uzbrauc */
+}
 
-  output += "</ul><hr>";
-  output += `<p>Summa bez PVN: <strong>${subtotal.toFixed(2)} EUR</strong></p>`;
-  output += `<p>PVN (21%): <strong>${totalPVN.toFixed(2)} EUR</strong></p>`;
-  output += `<p>Kopējā cena ar PVN: <strong>${totalWithPVN.toFixed(2)} EUR</strong></p>`;
+/* Rezultāta stils */
+#result {
+  margin-top: 1rem;
+  font-weight: normal;
+  background: #fff0f0;
+  padding: 1.5rem;
+  border: 1px solid #f1c0c0;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
 
-  document.getElementById("result").innerHTML = output;
+#result ul {
+  padding-left: 1.2rem;
+}
+
+#result hr {
+  margin: 1rem 0;
+  border: none;
+  border-top: 1px solid #ccc;
+}
+
+strong {
+  color: #b93c3c;
 }

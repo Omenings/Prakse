@@ -12,12 +12,14 @@
   </header>
 
   <main class="container">
+    <!-- Ievades lauks sadaļu skaitam -->
     <section class="form-section">
       <label for="sections">Sadaļu skaits:</label>
       <input type="number" id="sections" min="1" value="1" />
       <p>1 sadaļa = 20 EUR</p>
     </section>
 
+    <!-- Checkbox iespējas ar funkcionalitātēm -->
     <section class="form-section">
       <p>Izvēlies nepieciešamo funkcionalitāti:</p>
       <label><input type="checkbox" class="feature" data-name="SEO optimizācija" data-price="50" /> SEO optimizācija (50 EUR)</label><br />
@@ -26,6 +28,7 @@
       <label><input type="checkbox" class="feature" data-name="CMS integrācija" data-price="100" /> CMS integrācija (100 EUR)</label><br />
     </section>
 
+    <!-- Poga rezultāta aprēķinam un laukums rezultāta attēlošanai -->
     <section class="form-section">
       <button onclick="calculatePrice()">Aprēķināt cenu</button>
       <div id="result"></div>
@@ -36,6 +39,7 @@
     <p>&copy; 2025 Mājaslapu izstrādes uzņēmums</p>
   </footer>
 
+  <!-- JavaScript fails -->
   <script src="script.js"></script>
 </body>
 </html>
